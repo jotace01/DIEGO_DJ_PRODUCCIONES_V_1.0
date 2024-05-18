@@ -1,4 +1,28 @@
-<!DOCTYPE html>
+<?php
+    //CLASE
+    class usuario{
+
+        //ATRIBUTOS
+        private $user;
+        private $pass;
+
+        //METODOS
+        function __construct($_user, $_pass)
+        {
+            $this->user = $_user;
+            $this->pass = $_pass;
+        }
+
+        function iniciar_sesion(){
+            include_once ("./conexion.php");
+            $sql = "SELECT * FROM usuario WHERE nom= '".$this->user."' AND password = '".$this->pass."' ";
+            $res = $conn->query($sql);
+            return $res->num_rows;
+        }
+    }
+?>
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -36,6 +60,6 @@
         </div>
       </div>
       <!--ring div ends here-->
-</body>
+<!-- </body>
 
-</html>
+</html> --> -->
